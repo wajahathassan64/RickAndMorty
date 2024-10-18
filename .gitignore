@@ -1,0 +1,10 @@
+*/.swiftpm
+/**/.DS_Store
+*.DS_Store
+*.pbxuser
+*.xccheckout
+RickAndMorty.xcodeproj/project.xcworkspace/xcuserdata
+*.xcscmblueprint
+RickAndMorty.xcodeproj/xcuserdata
+RickAndMorty/RickAndMorty.xcodeproj/project.xcworkspace/xcuserdata
+RickAndMorty/RickAndMorty.xcodeproj/xcuserdata/zain.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
