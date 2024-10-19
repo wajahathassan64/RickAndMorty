@@ -1,10 +1,10 @@
 //
-// RMCharacterGender.swift
+// CharacterGender.swift
 
 
 import Foundation
 
-enum RMCharacterGender: String, Codable {
+enum CharacterGender: String, Codable {
     case male = "Male"
     case female = "Female"
     case genderless = "Genderless"

@@ -4,6 +4,6 @@
 
 import Foundation
 
-struct RMCharacterLocation: Codable {
+struct CharacterLocation: Codable {
     let name: String
 }
