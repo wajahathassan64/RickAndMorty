@@ -4,30 +4,45 @@
 import XCTest
 @testable import Networking
 
-final class NetworkingErrorTests: XCTestCase {
-    // MARK: - Tests
-    func testNoInternetErrorDescription() {
-        // when
-        let error: NetworkingError = .noInternet
-        
-        // then
-        XCTAssertEqual(error.localizedDescription, "Looks like you're not connect to internet!")
+class NetworkErrorTests: XCTestCase {
+
+    func testInvalidURLError() {
+        let error: NetworkError = .invalidURL
+        XCTAssertEqual(error, .invalidURL)
     }
     
-    func testRequestTimedOutErrorDescription() {
-        // when
-        let error: NetworkingError = .requestTimedOut
+    func testNetworkError() {
+        let underlyingError = NSError(domain: "NetworkErrorDomain", code: -1001, userInfo: nil)
+        let error: NetworkError = .networkError(underlyingError)
         
-        // then
-        XCTAssertEqual(error.localizedDescription, "Looks like it's take too long to process your reqeust!")
+        switch error {
+        case .networkError(let receivedError):
+            XCTAssertEqual(receivedError as NSError, underlyingError)
+        default:
+            XCTFail("Expected networkError case")
+        }
     }
     
-    func testUnknownErrorDescription() {
-        // when
-        let error: NetworkingError = .unknown
-        
-        // then
-        XCTAssertEqual(error.localizedDescription, "Oops! something bad happened")
+    func testServerError() {
+        let error: NetworkError = .serverError
+        XCTAssertEqual(error, .serverError)
     }
     
+    func testNoDataError() {
+        let error: NetworkError = .noData
+        XCTAssertEqual(error, .noData)
+    }
+    
+    func testDecodingError() {
+        let underlyingError = NSError(domain: "DecodingErrorDomain", code: -1002, userInfo: nil)
+        let error: NetworkError = .decodingError(underlyingError)
+        
+        switch error {
+        case .decodingError(let receivedError):
+            XCTAssertEqual(receivedError as NSError, underlyingError)
+        default:
+            XCTFail("Expected decodingError case")
+        }
+    }
 }
+

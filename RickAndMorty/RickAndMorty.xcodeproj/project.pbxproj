@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,7 +24,8 @@
 		64A521092CC3282400779DA7 /* RMCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A521082CC3282400779DA7 /* RMCharacter.swift */; };
 		64A5210B2CC3288800779DA7 /* RMCharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5210A2CC3288800779DA7 /* RMCharacterGender.swift */; };
 		64A5210D2CC3293000779DA7 /* RMCharacterLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5210C2CC3293000779DA7 /* RMCharacterLocation.swift */; };
-		64A521102CC32B8D00779DA7 /* MockApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5210F2CC32B8D00779DA7 /* MockApiClient.swift */; };
+		64A521102CC32B8D00779DA7 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5210F2CC32B8D00779DA7 /* MockAPIService.swift */; };
+		64A521172CC4123200779DA7 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 64A521162CC4123200779DA7 /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +66,7 @@
 		64A521082CC3282400779DA7 /* RMCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacter.swift; sourceTree = "<group>"; };
 		64A5210A2CC3288800779DA7 /* RMCharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterGender.swift; sourceTree = "<group>"; };
 		64A5210C2CC3293000779DA7 /* RMCharacterLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterLocation.swift; sourceTree = "<group>"; };
-		64A5210F2CC32B8D00779DA7 /* MockApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiClient.swift; sourceTree = "<group>"; };
+		64A5210F2CC32B8D00779DA7 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64A521172CC4123200779DA7 /* Networking in Frameworks */,
 				64A520F52CC3005100779DA7 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +222,7 @@
 		64A5210E2CC32B7300779DA7 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				64A5210F2CC32B8D00779DA7 /* MockApiClient.swift */,
+				64A5210F2CC32B8D00779DA7 /* MockAPIService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -243,6 +245,7 @@
 			name = RickAndMorty;
 			packageProductDependencies = (
 				64A520F42CC3005100779DA7 /* Networking */,
+				64A521162CC4123200779DA7 /* Networking */,
 			);
 			productName = RickAndMorty;
 			productReference = 64A520B42CC2FA8E00779DA7 /* RickAndMorty.app */;
@@ -318,6 +321,7 @@
 			);
 			mainGroup = 64A520AB2CC2FA8E00779DA7;
 			packageReferences = (
+				64A521152CC4123200779DA7 /* XCLocalSwiftPackageReference "Packages/Networking" */,
 			);
 			productRefGroup = 64A520B52CC2FA8E00779DA7 /* Products */;
 			projectDirPath = "";
@@ -380,7 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64A520FD2CC3241D00779DA7 /* RMServiceTests.swift in Sources */,
-				64A521102CC32B8D00779DA7 /* MockApiClient.swift in Sources */,
+				64A521102CC32B8D00779DA7 /* MockAPIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,8 +727,19 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		64A521152CC4123200779DA7 /* XCLocalSwiftPackageReference "Packages/Networking" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Networking;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		64A520F42CC3005100779DA7 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		64A521162CC4123200779DA7 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
 		};

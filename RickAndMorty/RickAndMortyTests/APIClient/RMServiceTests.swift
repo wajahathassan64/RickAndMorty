@@ -8,18 +8,18 @@ import XCTest
 final class RMServiceTests: XCTestCase {
     
     var sut: RMService!
-    var apiClient: MockAPIClient!
+    var mockApiService: MockAPIService!
     
     override func setUp() {
         super.setUp()
-        apiClient = MockAPIClient()
-        sut = RMService(apiClient: apiClient)
+        mockApiService = MockAPIService()
+        sut = RMService(apiService: mockApiService)
     }
 
     override func tearDown() {
-        apiClient = nil
+        mockApiService = nil
         sut = nil
         super.tearDown()
     }
-
+    
 }

@@ -12,18 +12,11 @@ let package = Package(
             targets: ["Networking"]
         )
     ],
-    dependencies: [
-        .package(
-            url: "https://github.com/Alamofire/Alamofire.git",
-            .upToNextMajor(from: "5.9.1")
-        )
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "Networking",
-            dependencies: [
-                .product(name: "Alamofire", package: "Alamofire")
-            ],
+            dependencies: [],
             path: "Sources"
         ),
         .testTarget(
@@ -33,3 +26,4 @@ let package = Package(
         )
     ]
 )
+
