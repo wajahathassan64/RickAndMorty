@@ -6,7 +6,7 @@ import Foundation
 import XCTest
 @testable import Networking
 
-class ConvertibleTests: XCTestCase {
+final class ConvertibleTests: XCTestCase {
     
     var sut: Convertible!
     

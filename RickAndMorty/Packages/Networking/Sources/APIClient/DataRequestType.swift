@@ -10,7 +10,7 @@ public protocol DataRequestType {
 }
 
 // Wrapper for Alamofire's DataRequest to conform to DataRequestType
-public class DataRequestWrapper: DataRequestType {
+final public class DataRequestWrapper: DataRequestType {
     private let dataRequest: DataRequest
     
     init(dataRequest: DataRequest) {

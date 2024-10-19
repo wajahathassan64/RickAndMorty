@@ -8,7 +8,7 @@ import XCTest
 @testable import Alamofire
 @testable import Networking
 
-class APIClientTest: XCTestCase {
+final class APIClientTest: XCTestCase {
     
     var sut: APIClient!
     var session: MockSession!

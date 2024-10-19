@@ -20,11 +20,11 @@ public protocol SessionType {
     func request(_ convertible: URLRequestConvertible) -> DataRequestType
 }
 
-public class APIClient: APIClientType {
+final public class APIClient: APIClientType {
     
-    let session: SessionType
+    private let session: SessionType
     
-    init(session: SessionType = SessionAdapter.default) {
+    public init(session: SessionType = SessionAdapter.default) {
         self.session = session
     }
     

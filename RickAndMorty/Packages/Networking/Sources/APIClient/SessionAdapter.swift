@@ -6,7 +6,7 @@ import Foundation
 import Alamofire
 
 // Wrapper class to adapt Alamofire's Session to SessionType
-public class SessionAdapter: SessionType {
+final public class SessionAdapter: SessionType {
     private let session: Session
     public static let `default` = SessionAdapter()
     

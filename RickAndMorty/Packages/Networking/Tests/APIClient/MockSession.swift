@@ -4,7 +4,7 @@
 @testable import Alamofire
 @testable import Networking
 
-class MockSession: SessionType {
+final class MockSession: SessionType {
     var mockDataRequest: MockDataRequest?
     
     // Return the pre-configured mock data request

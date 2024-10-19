@@ -5,7 +5,7 @@
 @testable import Networking
 import XCTest
 
-class MockDataRequest: DataRequestType {
+final class MockDataRequest: DataRequestType {
     var shouldSucceed = true
     var mockStatusCode: Int = 200
     var mockData: Data = Data()
