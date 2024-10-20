@@ -17,8 +17,9 @@
 		64A520DB2CC2FA8F00779DA7 /* RickAndMortyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A520DA2CC2FA8F00779DA7 /* RickAndMortyUITestsLaunchTests.swift */; };
 		64A520F22CC2FFE100779DA7 /* Networking in Resources */ = {isa = PBXBuildFile; fileRef = 64A520F12CC2FFE000779DA7 /* Networking */; };
 		64A521172CC4123200779DA7 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 64A521162CC4123200779DA7 /* Networking */; };
-		64A5211E2CC452DD00779DA7 /* Characters in Frameworks */ = {isa = PBXBuildFile; productRef = 64A5211D2CC452DD00779DA7 /* Characters */; };
 		64A521262CC4563D00779DA7 /* Characters in Frameworks */ = {isa = PBXBuildFile; productRef = 64A521252CC4563D00779DA7 /* Characters */; };
+		64A5212B2CC4FA4E00779DA7 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 64A5212A2CC4FA4E00779DA7 /* Core */; };
+		64A5212E2CC4FA5E00779DA7 /* UIToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 64A5212D2CC4FA5E00779DA7 /* UIToolKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		64A520F12CC2FFE000779DA7 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		64A5211B2CC444B700779DA7 /* RickAndMorty.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = RickAndMorty.xctestplan; sourceTree = "<group>"; };
 		64A521232CC4536000779DA7 /* Characters */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Characters; sourceTree = "<group>"; };
+		64A521272CC4DAF100779DA7 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
+		64A521282CC4DE2A00779DA7 /* UIToolKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIToolKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +65,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				64A521172CC4123200779DA7 /* Networking in Frameworks */,
+				64A5212B2CC4FA4E00779DA7 /* Core in Frameworks */,
+				64A5212E2CC4FA5E00779DA7 /* UIToolKit in Frameworks */,
 				64A521262CC4563D00779DA7 /* Characters in Frameworks */,
-				64A5211E2CC452DD00779DA7 /* Characters in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +143,8 @@
 		64A520E92CC2FBBE00779DA7 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				64A521282CC4DE2A00779DA7 /* UIToolKit */,
+				64A521272CC4DAF100779DA7 /* Core */,
 				64A521232CC4536000779DA7 /* Characters */,
 				64A520F12CC2FFE000779DA7 /* Networking */,
 			);
@@ -179,8 +185,9 @@
 			name = RickAndMorty;
 			packageProductDependencies = (
 				64A521162CC4123200779DA7 /* Networking */,
-				64A5211D2CC452DD00779DA7 /* Characters */,
 				64A521252CC4563D00779DA7 /* Characters */,
+				64A5212A2CC4FA4E00779DA7 /* Core */,
+				64A5212D2CC4FA5E00779DA7 /* UIToolKit */,
 			);
 			productName = RickAndMorty;
 			productReference = 64A520B42CC2FA8E00779DA7 /* RickAndMorty.app */;
@@ -258,6 +265,8 @@
 			packageReferences = (
 				64A521152CC4123200779DA7 /* XCLocalSwiftPackageReference "Packages/Networking" */,
 				64A521242CC4563D00779DA7 /* XCLocalSwiftPackageReference "Packages/Characters" */,
+				64A521292CC4FA4E00779DA7 /* XCLocalSwiftPackageReference "Packages/Core" */,
+				64A5212C2CC4FA5E00779DA7 /* XCLocalSwiftPackageReference "Packages/UIToolKit" */,
 			);
 			productRefGroup = 64A520B52CC2FA8E00779DA7 /* Products */;
 			projectDirPath = "";
@@ -664,6 +673,14 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/Characters;
 		};
+		64A521292CC4FA4E00779DA7 /* XCLocalSwiftPackageReference "Packages/Core" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core;
+		};
+		64A5212C2CC4FA5E00779DA7 /* XCLocalSwiftPackageReference "Packages/UIToolKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/UIToolKit;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -671,13 +688,17 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
 		};
-		64A5211D2CC452DD00779DA7 /* Characters */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Characters;
-		};
 		64A521252CC4563D00779DA7 /* Characters */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Characters;
+		};
+		64A5212A2CC4FA4E00779DA7 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		64A5212D2CC4FA5E00779DA7 /* UIToolKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIToolKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
