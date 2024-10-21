@@ -5,10 +5,10 @@
 import Foundation
 import UIKit
 
-protocol InstantiableType: AnyObject { }
+public protocol InstantiableType: AnyObject { }
 
 extension InstantiableType where Self: UIViewController {
-    static func instantiateFromStoryboard(
+    public static func instantiateFromStoryboard(
         with storyboardName: String,
         in bundle: Bundle = .main
     ) -> Self {

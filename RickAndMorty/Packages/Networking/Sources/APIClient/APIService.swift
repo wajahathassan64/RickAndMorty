@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol URLSessionProtocol {
+public protocol URLSessionProtocol {
     func dataTask(with url: URL, completionHandler: @escaping @Sendable (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
 
@@ -21,7 +21,7 @@ extension URLSession: URLSessionProtocol { }
 open class APIService: APIServiceType {
     private let session: URLSessionProtocol
     
-    init(session: URLSessionProtocol = URLSession.shared) {
+    public init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
     
