@@ -7,6 +7,7 @@ import UIKit
 @testable import Core
 
 final class UITableViewHeaderFooterViewExtensionTests: XCTestCase {
+    
     func testReuseId() {
         
          let reuseIdentifier = MockTableViewHeaderFooterView.reuseIdentifier

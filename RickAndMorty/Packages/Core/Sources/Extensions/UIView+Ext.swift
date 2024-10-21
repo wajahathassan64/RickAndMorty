@@ -30,6 +30,6 @@ extension UIView {
     open func configure(with viewModel: Any) {
         // An optional implementation.
         // Must be implemented if `viewModel` has to be configured.
-        assertionFailure("configure(with viewModel: Any) needs to be overriden")
+        assertionFailure("configure(with viewModel: Any) needs to be overridden")
     }
 }
