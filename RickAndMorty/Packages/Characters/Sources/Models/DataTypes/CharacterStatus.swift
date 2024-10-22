@@ -3,7 +3,6 @@
 
 
 import Foundation
-
 public enum CharacterStatus: String, Codable {
     case alive = "Alive"
     case dead = "Dead"

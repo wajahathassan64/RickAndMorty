@@ -14,12 +14,13 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Networking"),
-        .package(path: "../Core")
+        .package(path: "../Core"),
+        .package(path: "../UIToolKit")
     ],
     targets: [
         .target(
             name: "Characters",
-            dependencies: ["Networking", "Core"],
+            dependencies: ["Networking", "Core", "UIToolKit"],
             path: "Sources"
         ),
         .testTarget(

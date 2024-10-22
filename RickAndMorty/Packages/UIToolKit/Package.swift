@@ -5,19 +5,26 @@ import PackageDescription
 
 let package = Package(
     name: "UIToolKit",
+    platforms: [.iOS(.v15)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "UIToolKit",
-            targets: ["UIToolKit"]),
+            targets: ["UIToolKit"]
+        ),
+    ],
+    dependencies: [
+        .package(path: "../Core"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "UIToolKit"),
+            name: "UIToolKit",
+            dependencies: ["Core"],
+            path: "Sources"
+        ),
         .testTarget(
             name: "UIToolKitTests",
-            dependencies: ["UIToolKit"]),
+            dependencies: ["UIToolKit"],
+            path: "Tests"
+        )
     ]
 )

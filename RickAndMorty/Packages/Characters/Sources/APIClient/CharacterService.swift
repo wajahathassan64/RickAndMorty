@@ -5,11 +5,8 @@
 import Foundation
 import Networking
 
-public typealias Success<T: Decodable> = (T) -> Void
-public typealias Failure = (Error) -> Void
-
 public protocol AppServiceType {
-    func getCharacters(for page: Int, status: CharacterStatus?, onSuccess: @escaping Success<CharactersResponse>, onFailure: @escaping Failure )
+    func getCharacters(for page: Int, status: CharacterStatus?) async throws -> CharactersResponse
 }
 
 final class CharacterService: AppServiceType {
@@ -22,24 +19,24 @@ final class CharacterService: AppServiceType {
         self.baseUrl = baseUrl
     }
     
-    func getCharacters(for page: Int, status: CharacterStatus?, onSuccess: @escaping Success<CharactersResponse>, onFailure: @escaping Failure) {
+    func getCharacters(for page: Int, status: CharacterStatus?) async throws -> CharactersResponse {
         
         var query = ["page": "\(page)"]
         if let status = status {
             query["status"] = status.rawValue.lowercased()
         }
         
-        let endpoint = Endpoint(baseURL: baseUrl, path: "", method: .PUT, queryParams: query)
+        let endpoint = Endpoint(baseURL: baseUrl, path: "/character", method: .PUT, queryParams: query)
         
-        apiService.request(endpoint: endpoint) { (result: Result<CharactersResponse, NetworkError>) in
-            switch result {
-            case .success(let result):
-                onSuccess(result)
-            case .failure(let error):
-                onFailure(error)
+        return try await withCheckedThrowingContinuation { continuation in
+            apiService.request(endpoint: endpoint) { (result: Result<CharactersResponse, NetworkError>) in
+                switch result {
+                case .success(let response):
+                    continuation.resume(returning: response)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
             }
-            
         }
     }
-    
 }
