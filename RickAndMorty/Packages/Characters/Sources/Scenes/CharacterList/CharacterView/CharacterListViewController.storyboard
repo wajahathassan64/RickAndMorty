@@ -11,6 +11,7 @@
         <!--Character List View Controller-->
         <scene sceneID="GFq-qH-pwi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UFE-U1-YCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="CharacterListViewController" id="5lf-z7-MNG" customClass="CharacterListViewController" customModule="Characters" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="z6z-qZ-2Y6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -22,7 +23,6 @@
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UFE-U1-YCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-341" y="23"/>
         </scene>

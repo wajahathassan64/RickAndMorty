@@ -13,6 +13,8 @@ class CharacterListViewController: UITableViewController, InstantiableType {
     // MARK: - View cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .red
+        print("enter into VC")
     }
     
 }

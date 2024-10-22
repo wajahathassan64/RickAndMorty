@@ -6,8 +6,7 @@ import Foundation
 import UIKit
 import Core
 
-
-class CharactersFlowController: FlowController<CharactersDependencyContainerType> {
+public class CharactersFlowController: FlowController<CharactersDependencyContainerType> {
 
     // MARK: - Initialization
     required init(rootNavigationController: UINavigationController?, dependency: CharactersDependencyContainerType) {
@@ -20,5 +19,6 @@ class CharactersFlowController: FlowController<CharactersDependencyContainerType
         }
         
         rootNavigationController?.setViewControllers([viewController], animated: true)
+//        rootNavigationController?.pushViewController(viewController, animated: true)
     }
 }

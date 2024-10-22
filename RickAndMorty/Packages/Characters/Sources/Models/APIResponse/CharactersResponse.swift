@@ -4,11 +4,11 @@
 
 import Foundation
 
-struct CharactersResponse: Codable, Equatable {
+public struct CharactersResponse: Codable, Equatable {
     let info: Info
     let results: [Character]
     
-    static func == (lhs: CharactersResponse, rhs: CharactersResponse) -> Bool {
+    public static func == (lhs: CharactersResponse, rhs: CharactersResponse) -> Bool {
         lhs.results == rhs.results
     }
 }

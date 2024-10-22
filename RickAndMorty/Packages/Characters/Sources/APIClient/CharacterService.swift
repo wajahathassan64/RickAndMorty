@@ -8,7 +8,7 @@ import Networking
 public typealias Success<T: Decodable> = (T) -> Void
 public typealias Failure = (Error) -> Void
 
-protocol AppServiceType {
+public protocol AppServiceType {
     func getCharacters(for page: Int, status: CharacterStatus?, onSuccess: @escaping Success<CharactersResponse>, onFailure: @escaping Failure )
 }
 
