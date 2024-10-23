@@ -46,8 +46,8 @@ private extension CharacterListViewController {
         tableView.separatorStyle = .none
         
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.reuseIdentifier)
-//        tableView.register(LoaderCell.self, forCellReuseIdentifier: LoaderCell.reuseId)
-//        tableView.register(CharacterListHeaderView.self, forHeaderFooterViewReuseIdentifier: CharacterListHeaderView.reuseId)
+        tableView.register(CharacterTableHeaderView.self, forHeaderFooterViewReuseIdentifier: CharacterTableHeaderView.reuseIdentifier)
+        //        tableView.register(LoaderCell.self, forCellReuseIdentifier: LoaderCell.reuseId)
     }
     
 }
@@ -71,5 +71,16 @@ extension CharacterListViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         viewModel.willDisplayCell(for: indexPath)
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerViewModel = viewModel.headerViewModel(for: section)
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerViewModel.reuseIdentifier)
+        header?.configure(with: headerViewModel)
+        return header
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectedRow(at: indexPath)
     }
 }

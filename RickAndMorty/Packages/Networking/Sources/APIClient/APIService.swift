@@ -52,7 +52,7 @@ open class APIService: APIServiceType {
                 return
             }
             
-            // Handle decoding
+            // decoding
             if T.self == Data.self {
                 completion(.success(data as! T))
             } else {

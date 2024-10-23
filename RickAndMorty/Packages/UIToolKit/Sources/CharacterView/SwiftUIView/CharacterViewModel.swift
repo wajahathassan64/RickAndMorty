@@ -5,7 +5,7 @@
 import Foundation
 import SwiftUI
 
-enum CharacterStatusType {
+public enum CharacterStatusType {
     case alive
     case dead
     case unknown
@@ -45,11 +45,11 @@ final class CharacterViewModel: CharacterViewModelType {
     var backgroundColor: Color {
         switch charStatus {
         case .alive:
-            return Color.blue.opacity(0.3)
+            return Color.blue.opacity(0.15)
         case .dead:
-            return Color.red.opacity(0.3)
+            return Color.red.opacity(0.15)
         case .unknown:
-            return Color.gray.opacity(0.3)
+            return Color.gray.opacity(0.15)
         }
     }
     

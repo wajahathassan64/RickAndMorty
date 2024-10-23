@@ -19,6 +19,7 @@
 		64A5212E2CC4FA5E00779DA7 /* UIToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 64A5212D2CC4FA5E00779DA7 /* UIToolKit */; };
 		64B939B62CC711CF00B4AB63 /* RMAppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B939B52CC711CF00B4AB63 /* RMAppFlowController.swift */; };
 		64B939B92CC7468600B4AB63 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B939B82CC7468600B4AB63 /* AppDependencyContainer.swift */; };
+		64F659C32CC87B2D0043FDC9 /* RickAndMortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F659C22CC87B2D0043FDC9 /* RickAndMortyTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		64A521282CC4DE2A00779DA7 /* UIToolKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIToolKit; sourceTree = "<group>"; };
 		64B939B52CC711CF00B4AB63 /* RMAppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMAppFlowController.swift; sourceTree = "<group>"; };
 		64B939B82CC7468600B4AB63 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
+		64F659C22CC87B2D0043FDC9 /* RickAndMortyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		64A520CD2CC2FA8F00779DA7 /* RickAndMortyTests */ = {
 			isa = PBXGroup;
 			children = (
+				64F659C22CC87B2D0043FDC9 /* RickAndMortyTests.swift */,
 			);
 			path = RickAndMortyTests;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64F659C32CC87B2D0043FDC9 /* RickAndMortyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@ final class CharacterServiceTests: XCTestCase {
     override func setUp() {
         super.setUp()
         mockApiService = MockAPIService()
-        mockBaseUrl = URL(string: "https://mockapi.com")
+        mockBaseUrl = URL(string: "https://mockapi.com")!
         sut = CharacterService(apiService: mockApiService, baseUrl: mockBaseUrl)
     }
     
@@ -26,21 +26,26 @@ final class CharacterServiceTests: XCTestCase {
         super.tearDown()
     }
     
-    func testGetCharacterList() async throws {
-        // given
+    func testGetCharacterList() async {
+        // Given
         let mockCharactersResponse = CharacterServiceTests.mockCharacterResponse()
         mockApiService.result = .success(mockCharactersResponse)
         
-        // when
-        let response = try await sut.getCharacters(for: 1, status: .alive)
+        // When
+        let result = await sut.getCharacters(for: 1, status: .alive)
         
-        // then
-        XCTAssertEqual(response.results.count, 2)
-        XCTAssertEqual(response, mockCharactersResponse)
+        // Then
+        switch result {
+        case .success(let response):
+            XCTAssertEqual(response.results.count, 2, "Expected 2 characters in the response")
+            XCTAssertEqual(response, mockCharactersResponse, "Expected response to match the mock response")
+        case .failure(let error):
+            XCTFail("Expected success but got error: \(error)")
+        }
     }
     
-    func testGetCharacterListEmptyResponse() async throws {
-        // given
+    func testGetCharacterListEmptyResponse() async {
+        // Given
         let mockEmptyResponse = CharactersResponse(
             info: Info(count: 0, pages: 0, next: nil, prev: nil),
             results: []
@@ -48,29 +53,35 @@ final class CharacterServiceTests: XCTestCase {
         
         mockApiService.result = .success(mockEmptyResponse)
         
-        // when
-        let response = try await sut.getCharacters(for: 1, status: .alive)
+        // When
+        let result = await sut.getCharacters(for: 1, status: .alive)
         
-        // then
-        XCTAssertEqual(response.results.count, 0, "Expected empty character list")
-        XCTAssertEqual(response, mockEmptyResponse)
-    }
-    
-    func testGetCharacterListNetworkError() async throws {
-        // given
-        let mockError: NetworkError = .networkError(NSError(domain: "test", code: -1, userInfo: nil))
-        mockApiService.result = .failure(mockError)
-        
-        do {
-            // when
-            _ = try await sut.getCharacters(for: 1, status: .alive)
-            XCTFail("Expected to throw, but it did not throw")
-        } catch {
-            // then
-            XCTAssertEqual(error as? NetworkError, mockError)
+        // Then
+        switch result {
+        case .success(let response):
+            XCTAssertEqual(response.results.count, 0, "Expected empty character list")
+            XCTAssertEqual(response, mockEmptyResponse, "Expected response to match the mock empty response")
+        case .failure(let error):
+            XCTFail("Expected success but got error: \(error)")
         }
     }
     
+    func testGetCharacterListNetworkError() async {
+        // Given
+        let mockError: NetworkError = .networkError(NSError(domain: "test", code: -1, userInfo: nil))
+        mockApiService.result = .failure(mockError)
+        
+        // When
+        let result = await sut.getCharacters(for: 1, status: .alive)
+        
+        // Then
+        switch result {
+        case .success(let response):
+            XCTFail("Expected to fail, but got a successful response: \(response)")
+        case .failure(let error):
+            XCTAssertEqual(error as? NetworkError, mockError, "Expected the thrown error to match the mock error")
+        }
+    }
 }
 
 extension CharacterServiceTests {
