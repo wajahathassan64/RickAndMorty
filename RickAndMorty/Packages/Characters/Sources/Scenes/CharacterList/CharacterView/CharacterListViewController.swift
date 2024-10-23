@@ -11,6 +11,10 @@ class CharacterListViewController: UITableViewController, InstantiableType {
     // MARK: - Properties
     var viewModel: CharacterListViewModelType!
     
+    private struct Constants {
+        static let title = "Characters"
+    }
+    
     // MARK: - View cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +39,7 @@ private extension CharacterListViewController {
     }
     
     func setupNavigationBar() {
-        title = "Characters"
+        title = Constants.title
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -47,7 +51,6 @@ private extension CharacterListViewController {
         
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.reuseIdentifier)
         tableView.register(CharacterTableHeaderView.self, forHeaderFooterViewReuseIdentifier: CharacterTableHeaderView.reuseIdentifier)
-        //        tableView.register(LoaderCell.self, forCellReuseIdentifier: LoaderCell.reuseId)
     }
     
 }
