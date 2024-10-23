@@ -1,8 +1,6 @@
 //
 // XCTestCase+Ext.swift
 
-
-import Foundation
 import XCTest
 
 extension XCTestCase {
