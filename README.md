@@ -1,2 +1,3 @@
 # Rick and Morty iOS App
-This repository contains an iOS application developed as part of a take-home test to demonstrate proficiency in Swift and iOS development. The app interacts with the Rick and Morty API to retrieve and display a list of characters, complete with pagination and filtering functionality.
+# Overview
+This iOS application was built as part of a take-home test, designed to interact with the Rick and Morty API. It fetches a list of characters and displays them in a paginated list. The app demonstrates clean code practices, modular architecture, and scalability, aligning with the concept of a "Super App," where different teams own and manage various features or mini-apps independently.
