@@ -4,9 +4,9 @@
 This iOS application was built as part of a take-home test, designed to interact with the [Rick and Morty API](https://rickandmortyapi.com/documentation/). It fetches a list of characters and displays them in a paginated list. The app demonstrates clean code practices, modular architecture, and scalability, aligning with the concept of a **"Super App"** where different teams own and manage various features or mini-apps independently.
 
 <p align="left">
-<img src="Assets/rick-&-morty.gif" width="230" title="Gif">
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Assets/image2.PNG" width="230" title="Character Lists">
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Assets/image3.PNG" width="230" title="Character Details"</p>
+<img src="Assets/rick-&-morty.gif" width="240" title="Gif">
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Assets/image2.PNG" width="240" title="Character Lists">
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Assets/image3.PNG" width="240" title="Character Details"</p>
 
 ### Architecture Design
 The architecture has been thoughtfully designed to support the **"Super App"** concept, preparing for scalability and modular team-based feature ownership. It promotes encapsulation by dividing the app into independent modules, each managed by separate teams. The modules can be easily integrated into the main app while retaining separation of concerns.

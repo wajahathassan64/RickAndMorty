@@ -6,7 +6,6 @@ import Foundation
 import Networking
 import Core
 
-
 public protocol CharactersDependencyContainerType: DependencyType {
     var characterService: AppServiceType { get }
 }
