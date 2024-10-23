@@ -6,8 +6,8 @@ import Foundation
 import Core
 import UIToolKit
 
-enum CharacterListAction {
-    case openDetails(Character)
+protocol CharacterListAction {
+    func execute(on flowController: CharactersFlowController)
 }
 
 protocol CharacterListViewModelType {
@@ -76,8 +76,8 @@ extension CharacterListViewModel {
     }
     
     func selectedRow(at indexPath: IndexPath) {
-        
-        actionCallback?(.openDetails(characters[indexPath.row]))
+        let action = OpenDetailsAction(character: characters[indexPath.row])
+        actionCallback?(action)
     }
     
     func willDisplayCell(for indexPath: IndexPath) {
@@ -156,6 +156,16 @@ private extension CharacterListViewModel {
             }
             
             self.reloadCallback?()
+        }
+    }
+}
+
+extension CharacterListViewModel {
+    struct OpenDetailsAction: CharacterListAction {
+        let character: Character
+        
+        func execute(on flowController: CharactersFlowController) {
+            flowController.navigateToCharacterDetails(character)
         }
     }
 }

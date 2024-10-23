@@ -27,25 +27,19 @@ open class FlowController<DependencyContainer>: NSObject, FlowControllerProtocol
     }
 
     open func pushViewController(_ viewController: UIViewController, animated: Bool = true) {
-        DispatchQueue.main.async {
             self.rootNavigationController?.pushViewController(viewController, animated: animated)
-        }
     }
     
     open func presentViewController(_ viewController: UIViewController,
                                     animated: Bool = true,
                                     completion: (() -> Void)? = nil) {
-        DispatchQueue.main.async {
             self.rootNavigationController?.present(viewController,
                                                    animated: animated,
                                                    completion: completion)
-        }
     }
     
     open func popViewController(animated: Bool = true) {
-        DispatchQueue.main.async {
             self.rootNavigationController?.popViewController(animated: animated)
-        }
     }
     
     open func popToRootViewController(animated: Bool = true) {
@@ -58,11 +52,9 @@ open class FlowController<DependencyContainer>: NSObject, FlowControllerProtocol
     open func popToViewController(_ viewController: UIViewController,
                                   animated: Bool = true,
                                   completion: (([UIViewController]?) -> Void)? = nil) {
-        DispatchQueue.main.async {
             let poppedViewController = self.rootNavigationController?.popToViewController(viewController,
                                                                                           animated: animated)
             completion?(poppedViewController)
-        }
     }
     
     @available(*, deprecated, renamed: "dismissViewController(animated:completion:)")
@@ -80,6 +72,22 @@ open class FlowController<DependencyContainer>: NSObject, FlowControllerProtocol
             self.rootNavigationController?.dismiss(animated: animated,
                                                    completion: completion)
         }
+    }
+    
+    open func setRootViewController(_ viewController: UIViewController) {
+        rootNavigationController?.setViewControllers([viewController], animated: true)
+    }
+    
+    open func hideNavigationBar() {
+        rootNavigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    open func showNavigationBar() {
+        rootNavigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    open func popViewController() {
+        rootNavigationController?.popViewController(animated: true)
     }
     
     open func clearNavigationStack() {

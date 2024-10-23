@@ -13,16 +13,47 @@ public class CharactersFlowController: FlowController<CharactersDependencyContai
         super.init(rootNavigationController: rootNavigationController, dependency: dependency)
     }
     
+    // MARK: - Start Flow
     public override func startFlow() {
-        let viewController = CharacterListBuilder.build(dependency: dependency) { action in
-            switch action {
-                
-            case .openDetails(let character):
-                print("Character lists = ", character)
-            }
-            print("Action called")
-        }
-        
-        rootNavigationController?.pushViewController(viewController, animated: true)
+        let viewController = buildCharacterListViewController()
+        setRootViewController(viewController)
     }
+}
+
+// MARK: - Private Methods
+extension CharactersFlowController {
+    
+    func buildCharacterListViewController() -> UIViewController {
+        return CharacterListBuilder.build(dependency: dependency) { [weak self] action in
+            guard let self = self else { return }
+            self.handleCharacterListAction(action)
+        }
+    }
+    
+    func handleCharacterListAction(_ action: CharacterListAction) {
+        action.execute(on: self)
+    }
+    
+    func navigateToCharacterDetails(_ character: Character) {
+        let viewController = buildCharacterDetailsViewController(for: character)
+        showCharacterDetails(viewController)
+    }
+    
+    func buildCharacterDetailsViewController(for character: Character) -> UIViewController {
+        return CharacterDetailsBuilder.build(character: character) { [weak self] action in
+            guard let self = self else { return }
+            action.execute(on: self)
+        }
+    }
+    
+    func navigateBackFromDetails() {
+        showNavigationBar()
+        popViewController()
+    }
+    
+    func showCharacterDetails(_ viewController: UIViewController) {
+        hideNavigationBar()
+        pushViewController(viewController)
+    }
+    
 }

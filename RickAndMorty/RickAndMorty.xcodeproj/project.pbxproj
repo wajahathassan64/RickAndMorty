@@ -17,7 +17,7 @@
 		64A521262CC4563D00779DA7 /* Characters in Frameworks */ = {isa = PBXBuildFile; productRef = 64A521252CC4563D00779DA7 /* Characters */; };
 		64A5212B2CC4FA4E00779DA7 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 64A5212A2CC4FA4E00779DA7 /* Core */; };
 		64A5212E2CC4FA5E00779DA7 /* UIToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 64A5212D2CC4FA5E00779DA7 /* UIToolKit */; };
-		64B939B62CC711CF00B4AB63 /* RMAppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B939B52CC711CF00B4AB63 /* RMAppFlowController.swift */; };
+		64B939B62CC711CF00B4AB63 /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B939B52CC711CF00B4AB63 /* AppFlowController.swift */; };
 		64B939B92CC7468600B4AB63 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B939B82CC7468600B4AB63 /* AppDependencyContainer.swift */; };
 		64F659C32CC87B2D0043FDC9 /* RickAndMortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F659C22CC87B2D0043FDC9 /* RickAndMortyTests.swift */; };
 /* End PBXBuildFile section */
@@ -54,7 +54,7 @@
 		64A521232CC4536000779DA7 /* Characters */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Characters; sourceTree = "<group>"; };
 		64A521272CC4DAF100779DA7 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
 		64A521282CC4DE2A00779DA7 /* UIToolKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIToolKit; sourceTree = "<group>"; };
-		64B939B52CC711CF00B4AB63 /* RMAppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMAppFlowController.swift; sourceTree = "<group>"; };
+		64B939B52CC711CF00B4AB63 /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
 		64B939B82CC7468600B4AB63 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		64F659C22CC87B2D0043FDC9 /* RickAndMortyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				64A520B72CC2FA8E00779DA7 /* AppDelegate.swift */,
-				64B939B52CC711CF00B4AB63 /* RMAppFlowController.swift */,
+				64B939B52CC711CF00B4AB63 /* AppFlowController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64B939B62CC711CF00B4AB63 /* RMAppFlowController.swift in Sources */,
+				64B939B62CC711CF00B4AB63 /* AppFlowController.swift in Sources */,
 				64B939B92CC7468600B4AB63 /* AppDependencyContainer.swift in Sources */,
 				64A520B82CC2FA8E00779DA7 /* AppDelegate.swift in Sources */,
 			);
