@@ -44,7 +44,13 @@ Given the scope of this project and the super app concept, one challenge was to 
    cd RickAndMorty
    open RickAndMortyApp.xcodeproj
    ```
+3. Select RickAndMorty scheme from the available schemes.
+4. Run the App: Select an iPhone Simulator with iOS 15.0 or later from the target device list and click the "Run" button in Xcode to build and launch the app.
+5. Run Tests: To execute the unit tests, press Cmd + U.
+   
 ## Assumptions and Decisions
-The app was designed with scalability in mind, anticipating future growth into a super app.
-Modular design was chosen to allow independent teams to manage their features (modules) without conflicting with others.
-Used UIKit for larger views like the character list (UITableView) and SwiftUI for smaller components to demonstrate familiarity with both frameworks.
+1. The app was designed with scalability in mind, anticipating future growth into a super app.
+2. Modular design was chosen to allow independent teams to manage their features (modules) without conflicting with others.
+3. Used UIKit for larger views like the character list (UITableView) and SwiftUI for smaller components to demonstrate familiarity with both frameworks.
+4. Currently, only unit tests are implemented. There are no UI tests included in this project.
+5. Unit tests have been written for ViewModels and utility functions including modules. Other components or aspects of the application may not be covered.
