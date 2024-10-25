@@ -14,6 +14,11 @@ struct Character: Codable, Equatable {
     let image: URL
     
     static func == (lhs: Character, rhs: Character) -> Bool {
-        self == self
+        return lhs.name == rhs.name
+        && lhs.status == rhs.status
+        && lhs.species == rhs.species
+        && lhs.gender == rhs.gender
+        && lhs.image.absoluteString == rhs.image.absoluteString
+        && lhs.location.name == rhs.location.name
     }
 }
