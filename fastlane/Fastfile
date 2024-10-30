@@ -6,13 +6,15 @@ platform :ios do
     sync_code_signing(
       type: "appstore",
       app_identifier: ["com.ai-structs.RickMortyApp"],
-      clone_branch_directly: true
+      clone_branch_directly: true,  # Enable this option
+      readonly: true
     )
 
     sync_code_signing(
       type: "development",
       app_identifier: ["com.ai-structs.RickMortyApp"],
-      clone_branch_directly: true
+      clone_branch_directly: true,  # Enable this option
+      readonly: true
     )
   end
 
