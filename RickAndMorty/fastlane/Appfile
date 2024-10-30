@@ -1,8 +1,0 @@
-app_identifier("com.ai-structs.RickMortyApp") # The bundle identifier of your app
-apple_id("wajahathassan64@gmail.com") # Your Apple Developer Portal username
-
-itc_team_id("127413740") # App Store Connect Team ID
-team_id("WL24K46YGJ") # Developer Portal Team ID
-
-# For more information about the Appfile, see:
-#     https://docs.fastlane.tools/advanced/#appfile
