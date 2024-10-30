@@ -108,7 +108,7 @@ platform :ios do
       puts "🚀 Nothing to commit, pushing the same version again!"
     else
       # Make sure to set `[ci skip]` to avoid triggering a new action run
-      git_commit(path: "RickAndMorty.xcodeproj/project.pbxproj", message: "[ci skip] [🚀 release] Updating version to: #{version_number}.#{build_number}")
+      git_commit(path: "RickAndMorty/RickAndMorty.xcodeproj/project.pbxproj", message: "[ci skip] [🚀 release] Updating version to: #{version_number}.#{build_number}")
       
       # push to release branch
       push_to_git_remote(remote: "origin", remote_branch: git_branch)
