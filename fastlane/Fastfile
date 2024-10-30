@@ -104,7 +104,7 @@ platform :ios do
     end
 
     # Push to remote branch if needed
-    if git_status(path: "RickAndMorty.xcodeproj/project.pbxproj").empty?
+    if git_status(path: "RickAndMorty/RickAndMorty.xcodeproj/project.pbxproj").empty?
       puts "🚀 Nothing to commit, pushing the same version again!"
     else
       # Make sure to set `[ci skip]` to avoid triggering a new action run
