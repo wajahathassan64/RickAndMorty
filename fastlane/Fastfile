@@ -52,7 +52,7 @@ platform :ios do
       type: "appstore",
       app_identifier: ["com.ai-structs.RickMortyApp"],
       clone_branch_directly: true,  # Enable this option
-      readonly: true
+      readonly: false
     )
 
     # Set the version number from branch name e.g.: `beta/1.0.0`
