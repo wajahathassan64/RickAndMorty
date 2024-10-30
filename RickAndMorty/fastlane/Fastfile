@@ -6,13 +6,15 @@ platform :ios do
     sync_code_signing(
       type: "appstore",
       app_identifier: ["com.ai-structs.RickMortyApp"],
-      readonly: false
+      clone_branch_directly: true,  # Enable this option
+      readonly: true
     )
 
     sync_code_signing(
       type: "development",
       app_identifier: ["com.ai-structs.RickMortyApp"],
-      readonly: false
+      clone_branch_directly: true,  # Enable this option
+      readonly: true
     )
   end
 
@@ -32,6 +34,8 @@ platform :ios do
     distribution_type = split_git_ref.first
     # *.* or *.*.*
     version_number = split_git_ref.last 
+
+    puts ENV['GH_TOKEN'] ? "GitHub token is set." : "GitHub token is missing."
 
     if distribution_type != "beta" && distribution_type != "release"
       UI.user_error!("Invalid distribution type: #{distribution_type}, expected format: {beta|release}/{version}")
