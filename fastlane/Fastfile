@@ -86,6 +86,7 @@ platform :ios do
         distribute_external: true,
         notify_external_testers: true,
         groups: "Founders",
+        skip_waiting_for_build_processing: true,
         changelog: "This build was uploaded automatically from the CI/CD pipline"
       )
     else
