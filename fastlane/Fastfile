@@ -7,14 +7,14 @@ platform :ios do
       type: "appstore",
       app_identifier: ["com.ai-structs.RickMortyApp"],
       clone_branch_directly: true,  # Enable this option
-      readonly: true
+      readonly: false
     )
 
     sync_code_signing(
       type: "development",
       app_identifier: ["com.ai-structs.RickMortyApp"],
       clone_branch_directly: true,  # Enable this option
-      readonly: true
+      readonly: false
     )
   end
 
@@ -51,6 +51,7 @@ platform :ios do
     sync_code_signing(
       type: "appstore",
       app_identifier: ["com.ai-structs.RickMortyApp"],
+      clone_branch_directly: true,  # Enable this option
       readonly: true
     )
 
