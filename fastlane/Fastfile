@@ -84,6 +84,7 @@ platform :ios do
       upload_to_testflight(
         ipa: "RickAndMorty.ipa",
         distribute_external: true,
+        notify_external_testers: true,
         groups: "Founders",
         changelog: "This build was uploaded automatically from the CI/CD pipline"
       )
