@@ -1,0 +1,107 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Generate profiles and certificates"
+  lane :generate_profiles_and_certificates  do
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: ["com.ai-structs.RickMortyApp"],
+      readonly: false
+    )
+
+    sync_code_signing(
+      type: "development",
+      app_identifier: ["com.ai-structs.RickMortyApp"],
+      readonly: false
+    )
+  end
+
+  # release/*.*.* -> AppStore
+  # release/*.*.* -> TestFlight
+  desc "Distribute a new release build to the App Store"
+  lane :distribute do
+    split_git_ref = git_branch.split("/", -1)
+
+    puts "🚀 Pushing a new build for #{split_git_ref}"
+
+    if split_git_ref.length != 2
+      UI.user_error!("Invalid branch name: #{ENV["BRANCH_NAME"]}, expected format: {beta|release}/{version}")
+    end
+
+    # beta or release
+    distribution_type = split_git_ref.first
+    # *.* or *.*.*
+    version_number = split_git_ref.last 
+
+    if distribution_type != "beta" && distribution_type != "release"
+      UI.user_error!("Invalid distribution type: #{distribution_type}, expected format: {beta|release}/{version}")
+    end
+
+    # Create a new , temporary keychain for this workflow
+     setup_ci
+
+    # Setup the version of Xcode to `16.0`
+    xcode_select("/Applications/Xcode.app")
+
+    # Install the necessary certificates and profiles
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: ["com.ai-structs.RickMortyApp"],
+      readonly: true
+    )
+
+    # Set the version number from branch name e.g.: `beta/1.0.0`
+    increment_version_number(
+      version_number: version_number,
+      xcodeproj: "RickAndMorty.xcodeproj"
+    )
+
+    # Setup the AppStore Connect API Key
+    app_store_connect_api_key(
+      key_id: ENV["APP_STORE_CONNECT_API_KEY_ID"],
+      issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
+      key_content: ENV["APP_STORE_CONNECT_KEY_CONTENT"]
+    )
+
+    # Increment the build number by 1
+    build_number = latest_testflight_build_number + 1
+    increment_build_number(xcodeproj: "RickAndMorty.xcodeproj", build_number: build_number)
+
+    # Archive the app
+    build_app(scheme: "RickAndMorty", configuration: 'Release', output_name: "RickAndMorty.ipa")
+
+    # Upload the app to TestFlight or Distribute as a new version
+
+    if distribution_type == "beta"
+      upload_to_testflight(
+        ipa: "RickAndMorty.ipa",
+        distribute_external: true,
+        groups: "Founders",
+        changelog: "This build was uploaded automatically from the CI/CD pipline"
+      )
+    else
+      upload_to_app_store(
+        ipa: "RickAndMorty.ipa",
+        precheck_include_in_app_purchases: false,
+        run_precheck_before_submit: false,
+        submit_for_review: false,
+        automatic_release: true,
+        force: true,
+        skip_metadata: true,
+        skip_screenshots: true,
+        skip_binary_upload: false
+      )
+    end
+
+    # Push to remote branch if needed
+    if git_status(path: "RickAndMorty.xcodeproj/project.pbxproj").empty?
+      puts "🚀 Nothing to commit, pushing the same version again!"
+    else
+      # Make sure to set `[ci skip]` to avoid triggering a new action run
+      git_commit(path: "RickAndMorty.xcodeproj/project.pbxproj", message: "[ci skip] [🚀 release] Updating version to: #{version_number}.#{build_number}")
+      
+      # push to release branch
+      push_to_git_remote(remote: "origin", remote_branch: git_branch)
+    end  
+  end
+end
