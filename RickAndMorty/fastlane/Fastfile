@@ -24,7 +24,7 @@ platform :ios do
 
     puts "🚀 Pushing a new build for #{split_git_ref}"
 
-    if split_git_ref.lenght != 2
+    if split_git_ref.length != 2
       UI.user_error!("Invalid branch name: #{ENV["BRANCH_NAME"]}, expected format: {beta|release}/{version}")
     end
 
@@ -41,7 +41,7 @@ platform :ios do
      setup_ci
 
     # Setup the version of Xcode to `16.0`
-    xcode_select("/Applications/Xcode_16.app")
+    xcode_select("/Applications/Xcode.app")
 
     # Install the necessary certificates and profiles
     sync_code_signing(
@@ -59,8 +59,8 @@ platform :ios do
     # Setup the AppStore Connect API Key
     app_store_connect_api_key(
       key_id: ENV["APP_STORE_CONNECT_API_KEY_ID"],
-      issue_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
-      key_contentL ENV["APP_STORE_CONNECT_KEY_CONTENT"]
+      issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
+      key_content: ENV["APP_STORE_CONNECT_KEY_CONTENT"]
     )
 
     # Increment the build number by 1
@@ -92,7 +92,7 @@ platform :ios do
         skip_binary_upload: false
       )
     end
-    
+
     # Push to remote branch if needed
     if git_status(path: "RickAndMorty.xcodeproj/project.pbxproj").empty?
       puts "🚀 Nothing to commit, pushing the same version again!"
