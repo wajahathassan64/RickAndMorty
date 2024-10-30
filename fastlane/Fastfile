@@ -72,10 +72,14 @@ platform :ios do
     increment_build_number(xcodeproj: "RickAndMorty/RickAndMorty.xcodeproj", build_number: build_number)
 
     # Archive the app
-    build_app(scheme: "RickAndMorty", configuration: 'Release', output_name: "RickAndMorty.ipa")
+    build_app(
+      scheme: "RickAndMorty",
+      configuration: 'Release',
+      output_name: "RickAndMorty.ipa",
+      project: "RickAndMorty/RickAndMorty.xcodeproj"
+    )
 
     # Upload the app to TestFlight or Distribute as a new version
-
     if distribution_type == "beta"
       upload_to_testflight(
         ipa: "RickAndMorty.ipa",
