@@ -51,8 +51,7 @@ platform :ios do
     sync_code_signing(
       type: "appstore",
       app_identifier: ["com.ai-structs.RickMortyApp"],
-      readonly: false,
-      verbose: true  # Enable verbose output
+      readonly: true
     )    
 
     # Set the version number from branch name e.g.: `beta/1.0.0`
