@@ -27,6 +27,14 @@ jobs:
       - name: Install Dependencies
         run: bundle install
 
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          shell: bash
+          
       - name: Run Fastlane
         run: bundle exec fastlane distribute
         env:
@@ -37,5 +45,4 @@ jobs:
           MATCH_USERNAME: ${{ secrets.MATCH_USERNAME }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
           
