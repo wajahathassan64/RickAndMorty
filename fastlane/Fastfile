@@ -33,6 +33,8 @@ platform :ios do
     # *.* or *.*.*
     version_number = split_git_ref.last 
 
+    puts ENV['GH_TOKEN'] ? "GitHub token is set." : "GitHub token is missing."
+
     if distribution_type != "beta" && distribution_type != "release"
       UI.user_error!("Invalid distribution type: #{distribution_type}, expected format: {beta|release}/{version}")
     end
