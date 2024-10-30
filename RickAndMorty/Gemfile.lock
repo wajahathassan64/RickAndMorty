@@ -214,7 +214,8 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-darwin-23
+  arm64-darwin-23
+  arm64-darwin-22
 
 DEPENDENCIES
   fastlane
