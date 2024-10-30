@@ -10,14 +10,24 @@ on:
             - 'beta/**'
 
 jobs:
-    distribute:
-        runs-on: macos-latest
-        steps:
-        - uses: actions/checkout@v4
-        - uses: ruby/setup-ruby@v1
-          with:
-            ruby-version: '3.1'
-        - run: bundle exec fastlane distribute
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.0' # or your required version
+
+      - name: Install Bundler
+        run: gem install bundler
+
+      - name: Install Dependencies
+        run: bundle install
+
+      - name: Run Fastlane
+        run: bundle exec fastlane distribute
         env:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
@@ -25,3 +35,4 @@ jobs:
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
           MATCH_USERNAME: ${{ secrets.MATCH_USERNAME }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+
