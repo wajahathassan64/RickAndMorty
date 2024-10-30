@@ -33,8 +33,9 @@ jobs:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_KEY_CONTENT }}
-          MATCH_GIT_BASIC_AUTHORIZATION: "Basic ${{ secrets.GH_TOKEN }}"
+          MATCH_GIT_BASIC_AUTHORIZATION: "Basic ${{ secrets.PAT_TOKEN }}"
           MATCH_USERNAME: ${{ secrets.MATCH_USERNAME }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }} # Added for GitHub authentication
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
           

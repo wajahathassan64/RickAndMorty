@@ -51,9 +51,9 @@ platform :ios do
     sync_code_signing(
       type: "appstore",
       app_identifier: ["com.ai-structs.RickMortyApp"],
-      clone_branch_directly: true,  # Enable this option
-      readonly: false
-    )
+      readonly: true,
+      verbose: true  # Enable verbose output
+    )    
 
     # Set the version number from branch name e.g.: `beta/1.0.0`
     increment_version_number(
