@@ -57,7 +57,7 @@ platform :ios do
     # Set the version number from branch name e.g.: `beta/1.0.0`
     increment_version_number(
       version_number: version_number,
-      xcodeproj: "RickAndMorty.xcodeproj"
+      xcodeproj: "RickAndMorty/RickAndMorty.xcodeproj"
     )
 
     # Setup the AppStore Connect API Key
