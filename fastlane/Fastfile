@@ -48,8 +48,7 @@ platform :ios do
     # Install the necessary certificates and profiles
     sync_code_signing(
       type: "appstore",
-      app_identifier: ["com.ai-structs.Rick"],
-      readonly: true
+      app_identifier: ["com.ai-structs.Rick"]
     )    
 
     # Set the version number from branch name e.g.: `beta/1.0.0`
