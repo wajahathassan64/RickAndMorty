@@ -1,5 +1,5 @@
-git_url("git@github.com:wajahathassan64/fastlane-match.git")
-
+git_url("https://github.com/wajahathassan64/ai-structs-rick-morty-fastlane-match.git")
+git_branch "master" # or whatever your branch is named
 
 storage_mode("git")
 

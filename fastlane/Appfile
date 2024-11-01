@@ -1,4 +1,4 @@
-app_identifier("com.ai-structs.RickMortyApp") # The bundle identifier of your app
+app_identifier("com.ai-structs.Rick") # The bundle identifier of your app
 apple_id("wajahathassan64@gmail.com") # Your Apple Developer Portal username
 
 itc_team_id("127413740") # App Store Connect Team ID
