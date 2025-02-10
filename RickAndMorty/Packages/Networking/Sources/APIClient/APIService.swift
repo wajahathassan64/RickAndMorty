@@ -30,7 +30,7 @@ open class APIService: APIServiceType {
             completion(.failure(.invalidURL))
             return
         }
-        
+        print("endpoint = ", url)
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         request.allHTTPHeaderFields = endpoint.headers
