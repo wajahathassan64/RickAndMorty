@@ -18,7 +18,7 @@ final class UIViewExtensionTests: XCTestCase {
         static let hostedSwiftUIViewSubview = "Subview should exist after hosting a SwiftUI view"
         static let oneSubviewAfterHostingSwiftUIView = "There should be exactly one subview after hosting a SwiftUI view"
         static let swiftUIViewReplacingOldSubview = "The old subview should be removed and replaced by the new SwiftUI view"
-        static let removePreviousSubview = "The previous subview should be removed."
+        static let removePreviousSubview = "The previous subview should be removed.."
     }
     
     
