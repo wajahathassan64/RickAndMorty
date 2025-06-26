@@ -12,7 +12,7 @@ class AppFlowController: FlowController<CharactersDependencyContainerType> {
     private var charactersFlowController: CharactersFlowController?
     private weak var window: UIWindow?
     
-    // MARK: - Initialization
+    // MARK: - Initialisation
     required init(rootNavigationController: UINavigationController?, dependency: CharactersDependencyContainerType) {
         super.init(rootNavigationController: rootNavigationController, dependency: dependency)
     }
