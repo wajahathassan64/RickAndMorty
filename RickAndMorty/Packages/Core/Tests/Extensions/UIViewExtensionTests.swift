@@ -14,7 +14,7 @@ final class UIViewExtensionTests: XCTestCase {
     
     private struct Constants {
         static let subviewWithCorrectFrameAndInsets = "Subview should have correct frame with insets applied"
-        static let subviewWithoutInsets = "Subview should match the bounds of the parent view with no insets applied"
+        static let subviewWithoutInsets = "Subview should match the boundds of the parent view with no insets applied"
         static let hostedSwiftUIViewSubview = "Subview should exist after hosting a SwiftUI view"
         static let oneSubviewAfterHostingSwiftUIView = "There should be exactly one subview after hosting a SwiftUI view"
         static let swiftUIViewReplacingOldSubview = "The old subview should be removed and replaced by the new SwiftUI view"
