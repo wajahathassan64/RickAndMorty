@@ -189,6 +189,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				642D4AB72E0E81D500B73683 /* PBXTargetDependency */,
 			);
 			name = RickAndMorty;
 			packageProductDependencies = (
@@ -275,6 +276,7 @@
 				64A521242CC4563D00779DA7 /* XCLocalSwiftPackageReference "Packages/Characters" */,
 				64A521292CC4FA4E00779DA7 /* XCLocalSwiftPackageReference "Packages/Core" */,
 				64A5212C2CC4FA5E00779DA7 /* XCLocalSwiftPackageReference "Packages/UIToolKit" */,
+				642D4AB52E0E819A00B73683 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = 64A520B52CC2FA8E00779DA7 /* Products */;
 			projectDirPath = "";
@@ -345,6 +347,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		642D4AB72E0E81D500B73683 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 642D4AB62E0E81D500B73683 /* SwiftLintBuildToolPlugin */;
+		};
 		64A520CC2CC2FA8F00779DA7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 64A520B32CC2FA8E00779DA7 /* RickAndMorty */;
@@ -715,7 +721,23 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		642D4AB52E0E819A00B73683 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.59.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		642D4AB62E0E81D500B73683 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 642D4AB52E0E819A00B73683 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
 		64A521162CC4123200779DA7 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
